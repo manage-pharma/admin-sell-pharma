@@ -17,7 +17,6 @@ const ToastObjects = {
     autoClose: 2000,
   };
   const initialItems = [
-    { id: 2, name: 'Kho', value: 'isInventory' },
     { id: 3, name: 'Bán hàng', value: 'isSaleAgent' },
     { id: 4, name: 'Quản trị', value: 'isAdmin' },
   ];

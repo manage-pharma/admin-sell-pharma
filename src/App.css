@@ -607,7 +607,7 @@ a.itemside:hover .title {
 .card-user .card-header {
   position: relative;
   height: 100px;
-  background-color: #006399 !important;
+  background-color: #006399;
   color: white;
   text-align: center;
 }

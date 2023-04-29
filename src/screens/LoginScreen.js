@@ -18,7 +18,13 @@ const Login = () => {
 
   useEffect(() =>{
     if(userInfo){
-      history.push('/')
+      console.log({userInfo});
+      if(userInfo.role=='isSaleAgent')
+        history.push('/orders')
+      else if(userInfo.role=="isInventory")  
+        history.push('/inventories')
+      else
+        history.push('/')
     }
   }, [userInfo, history])
   

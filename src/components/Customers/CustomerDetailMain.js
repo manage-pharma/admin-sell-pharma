@@ -15,17 +15,12 @@ import Orders from "./Orders";
 
 const CustomerDetailMain = (props) => {
   const {customerId} = props;
-  console.log(customerId)
   const dispatch = useDispatch();
   const history = useHistory();
   const { loading, error, customer } = useSelector(state => state.customerSingle);
 
   const {orders}=useSelector(state => state.orderList)
   const orderFilter= orders?.filter(item => item?.user?._id === customerId)
-
-
-
-  console.log({orderFilter})
 
   useEffect(() => {
     dispatch(singleCustomer(customerId))
@@ -48,16 +43,13 @@ const CustomerDetailMain = (props) => {
     <>
     <section className="content-main">
       <div className="content-header">
-        <button  className="btn btn-dark text-white" onClick={(e)=>{
-          e.preventDefault()
-          history.push('/customers')
-        }}>
-          Quay về
-        </button>
-        <h2 className="content-title">Chi tiết khách hàng</h2>
-        <div>
-          
-        </div>
+        <div className="content-title d-flex" onClick={e=>{
+              e.preventDefault()
+              history.push("/customers")
+          }}>
+              <h4 className="arrow-breadcrum"><i className="fas fa-arrow-left"></i></h4>
+              <h3>Chi tiết khách hàng</h3>
+          </div>
       </div>
 
       <div className="card card-custom mb-4 shadow-sm">
