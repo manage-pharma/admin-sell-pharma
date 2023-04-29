@@ -27,17 +27,21 @@ const Sidebar = () => {
         <nav>
           <ul className="menu-aside">
             {/* //! Trang chủ */}
-            <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
-                to="/"
-                exact={true}
-              >
-                <i className="icon fas fa-home"></i>
-                <span className="text">Trang chủ</span>
-              </NavLink>
-            </li>
+            {
+              userInfo?.role === "isAdmin"?
+              <li className="menu-item">
+                <NavLink
+                  activeClassName="active"
+                  className="menu-link"
+                  to="/"
+                  exact={true}
+                >
+                  <i className="icon fas fa-home"></i>
+                  <span className="text">Trang chủ</span>
+                </NavLink>
+              </li>:""
+
+            }
 
             {/* //! Danh mục  */}
             {
@@ -86,16 +90,7 @@ const Sidebar = () => {
                 </ul>
               </li>
               {/* //! Supplier */}
-              <li className="menu-item">
-                  <NavLink
-                    activeClassName="active"
-                    className="menu-link"
-                    to="/providers"
-                  >
-                    <i className="icon fas fa-store-alt"></i>
-                    <span className="text">Nhà cung cấp</span>
-                  </NavLink>
-                </li>
+              
                 
               
               </>
@@ -198,84 +193,94 @@ const Sidebar = () => {
               )
             }
             {
-              (userInfo.role === "isAdmin" || userInfo.role === "isInventory") && (
+              (userInfo.role === "isInventory") && (
                 <>
-                   <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
+                  <li className="menu-item">
+                    <NavLink
+                      activeClassName="active"
+                      className="menu-link"
+                      to="/providers"
+                    >
+                      <i className="icon fas fa-store-alt"></i>
+                      <span className="text">Nhà cung cấp</span>
+                    </NavLink>
+                  </li>
+                  <li className="menu-item">
+                    <NavLink
+                      activeClassName="active"
+                      className="menu-link"
 
-                to="/import-stock"
-              >
-                <i className="icon fas fa-sign-in-alt"></i>
-                <span className="text">Nhập kho</span>
-              </NavLink>
-            </li>
+                      to="/import-stock"
+                    >
+                      <i className="icon fas fa-sign-in-alt"></i>
+                      <span className="text">Nhập kho</span>
+                    </NavLink>
+                  </li>
              
-            <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
-                to="/export-stock"
-              >
-                <i className="icon fas fa-sign-out-alt"></i>
-                <span className="text">Xuất kho</span>
-              </NavLink>
-            </li>
-            <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
-                to="/req-inventory"
-              >
-                <i className="icon fas fa-calendar"></i>
-                <span className="text">Yêu cầu đặt hàng</span>
-              </NavLink>
-            </li>
+                  <li className="menu-item">
+                    <NavLink
+                      activeClassName="active"
+                      className="menu-link"
+                      to="/export-stock"
+                    >
+                      <i className="icon fas fa-sign-out-alt"></i>
+                      <span className="text">Xuất kho</span>
+                    </NavLink>
+                  </li>
+                  <li className="menu-item">
+                    <NavLink
+                      activeClassName="active"
+                      className="menu-link"
+                      to="/req-inventory"
+                    >
+                      <i className="icon fas fa-calendar"></i>
+                      <span className="text">Yêu cầu đặt hàng</span>
+                    </NavLink>
+                  </li>
 
-           
-            <li className="menu-item lv1 arrow down">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
-                to="/inventories"
-              >
-                <i className="icon fas fa-warehouse"></i>
-                <span className="text">Kho dược</span>
-              </NavLink>
-              <ul className="menu-aside lv2">
-                <li className="menu-item">
-                  <NavLink
-                    activeClassName="active"
-                    className="menu-link"
-                    to="/inventories"
-                  >
-                    <i className="icon fas fa-archive"></i>
-                    <span className="text">Xem tồn kho</span>
-                  </NavLink>
-                </li>
-                <li className="menu-item">
-                  <NavLink
-                    activeClassName="active"
-                    className="menu-link"
-                    to="/tag-inventory"
-                  >
-                    <i className="icon fas fa-tags"></i>
-                    <span className="text">Thẻ kho</span>
-                  </NavLink>
-                </li>
-                <li className="menu-item">
-                  <NavLink
-                    activeClassName="active"
-                    className="menu-link"
-                    to="/inventory-check"
-                  >
-                    <i className="icon fab fa-dropbox"></i>
-                    <span className="text">Kiểm kê tồn kho</span>
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
+                
+                  <li className="menu-item lv1 arrow down">
+                    <NavLink
+                      activeClassName="active"
+                      className="menu-link"
+                      to="/inventories"
+                    >
+                      <i className="icon fas fa-warehouse"></i>
+                      <span className="text">Kho dược</span>
+                    </NavLink>
+                    <ul className="menu-aside lv2">
+                      <li className="menu-item">
+                        <NavLink
+                          activeClassName="active"
+                          className="menu-link"
+                          to="/inventories"
+                        >
+                          <i className="icon fas fa-archive"></i>
+                          <span className="text">Xem tồn kho</span>
+                        </NavLink>
+                      </li>
+                      <li className="menu-item">
+                        <NavLink
+                          activeClassName="active"
+                          className="menu-link"
+                          to="/tag-inventory"
+                        >
+                          <i className="icon fas fa-tags"></i>
+                          <span className="text">Thẻ kho</span>
+                        </NavLink>
+                      </li>
+                      <li className="menu-item">
+                        <NavLink
+                          activeClassName="active"
+                          className="menu-link"
+                          to="/inventory-check"
+                        >
+                          <i className="icon fab fa-dropbox"></i>
+                          <span className="text">Kiểm kê tồn kho</span>
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </li>
                 </>
               )
             }

@@ -57,7 +57,8 @@ const EditDrugStoreMain=(props) => {
 
   const handleSubmit=async (e) => {
     e.preventDefault();
-    dispatch(updateDrugStore({...data,discountDetail:discountArr.map((item)=>item._id), drugstoreId}));
+    console.log({...data,discount:totalDiscount,discountDetail:discountArr.map((item)=>item._id), drugstoreId});
+    dispatch(updateDrugStore({...data,discount:totalDiscount,discountDetail:discountArr.map((item)=>item._id), drugstoreId}));
   }
   const currentDate = new Date();
   const drugstoreEdit=useSelector((state) => state.drugstoreSingle);
@@ -73,11 +74,11 @@ const EditDrugStoreMain=(props) => {
     setIndex(selectedIndex);
   };
 
-  const handelREmoveDiscount=(e)=>{
-    e.preventDefault()
-    discountArr.splice(index, 1)
-    setDiscountArr(discountArr)
-  }
+  //const handelREmoveDiscount=(e)=>{
+  //  e.preventDefault()
+  //  discountArr.splice(index, 1)
+  //  setDiscountArr(discountArr)
+  //}
 
   useEffect(() => {
     dispatch(listPromotion())
@@ -110,7 +111,7 @@ const EditDrugStoreMain=(props) => {
     }
 
     
-  },[dispatch, drugstore,successDS,drugstoreId, flag, successUpdate,discountArr]);
+  },[dispatch, drugstore,totalDiscount,successDS,drugstoreId, flag, successUpdate,discountArr]);
 
   return (
     <>

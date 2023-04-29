@@ -102,39 +102,7 @@ const MainReview = () => {
                 }}>{!expanded ? 'Mở rộng' : 'Thu gọn' }</button>
               </div>
             </div>
-            <div className="col-lg-2 col-6 col-md-3">
-              <div className="d-flex">
-                <span className="label-date">From: </span>
-                <input
-                    id="datePicker"
-                    name="from"
-                    value={from}
-                    className="form-control"
-                    type='date'
-                    onChange={handleChange}
-                ></input>
-              </div>
-            </div>
-            <div className="col-lg-2 col-6 col-md-3">
-              <div className="d-flex">
-                <span className="label-date">To: </span>
-                <input
-                    id="datePicker"
-                    name="to"
-                    value={to}
-                    className="form-control"
-                    type='date'
-                    onChange={handleChange}
-                ></input>
-              </div>
-            </div>
-            <div className="col-lg-1">
-              {toggleSearch ? 
-                <button className="btn btn-danger" onClick={handleSearchDate}>Cancel</button>
-              : 
-                <button className="btn btn-success" onClick={handleSearchDate}>Search</button>
-              }
-            </div>
+            
           </div>
         </header>
 
